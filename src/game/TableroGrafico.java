@@ -15,6 +15,7 @@ public class TableroGrafico {
 
 	private JFrame frame;
 	private int cantidadDeIntentos = 10;
+	private int record = 0;
 
 	/**
 	 * Launch the application.
@@ -51,11 +52,16 @@ public class TableroGrafico {
 		
 		// recuadro intentos
 		
-		JLabel intentos = new JLabel("");
-		intentos.setBounds(335, 11, 78, 22);
+		JLabel intentos = new JLabel("Intentos: " + getCantidadDeIntentos());
+		intentos.setBounds(218, 11, 78, 22);
 		frame.getContentPane().add(intentos); 
 		
+		// recuadro record
 		
+		JLabel record = new JLabel("Record: ");
+		record.setBounds(306, 15, 68, 14);
+		frame.getContentPane().add(record);
+
 		//Creo una instancia de la lógica del tablero.
 		TableroLogica tb = new TableroLogica();
 		
@@ -101,21 +107,16 @@ public class TableroGrafico {
 		actualizarBotones(matrizButton, tb);
 		
 		//FUNCION QUE AGREGA EL EVENTO A CADA BOTON
-		agregarEventos(matrizButton, tb);
+		agregarEventos(matrizButton, tb, intentos, record);
 		
-		//FUNCION QUE ACTUALIZA EL MARCADOR DE INTENTOS
-		actualizarIntentos(intentos,frame);
-		
-		
-	}
-	
-	
-	private void actualizarIntentos(JLabel intentos, JFrame frame) {
-		intentos.setText("Intentos: " + getCantidadDeIntentos());  
-	}
 
+
+		
+		
+	}
+	
 	//----------FUNCION QUE ESTABLECE EL EVENTO A CADA BOTON-------------
-	private void agregarEventos(JButton matrizButton[][], TableroLogica tb) {
+	private void agregarEventos(JButton matrizButton[][], TableroLogica tb, JLabel intentos, JLabel record) {
 		
 		for(int fila=0; fila<4; fila++) {
 			for(int col=0; col<4; col++) {
@@ -135,6 +136,9 @@ public class TableroGrafico {
 							tb.cambiarEstados(fila, columna);
 							setCantidadDeIntentos(getCantidadDeIntentos()-1); 
 							actualizarBotones(matrizButton, tb);
+							// intentos y record modificados en pantalla
+							intentos.setText("Intentos: " +  Integer.toString (getCantidadDeIntentos()));
+							record.setText("Record: " +  Integer.toString (getCantidadDeIntentos() * 2 ));
 							
 						}
 						System.out.println("Intentos: "+ getCantidadDeIntentos()); 
@@ -142,7 +146,7 @@ public class TableroGrafico {
 						// PERDISTE
 						if(getCantidadDeIntentos()==0) {
 							System.out.println("Has perdido!");
-							JOptionPane.showMessageDialog(null, "Has perdido!!!");
+							JOptionPane.showMessageDialog(null, "Has perdido!!! Te has quedado sin intentos.");
 							System.exit(0);
 						}
 						
@@ -200,5 +204,13 @@ public class TableroGrafico {
 
 	public void setCantidadDeIntentos(int cantidadDeIntentos) {
 		this.cantidadDeIntentos = cantidadDeIntentos;
+	}
+
+	public int getRecord() {
+		return record;
+	}
+
+	public void setRecord(int record) {
+		this.record = record;
 	}
 }
