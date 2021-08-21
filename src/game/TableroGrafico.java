@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JComboBox;
 
 public class TableroGrafico {
 
@@ -61,6 +62,17 @@ public class TableroGrafico {
 		JLabel record = new JLabel("Record: ");
 		record.setBounds(306, 15, 68, 14);
 		frame.getContentPane().add(record);
+		
+		// dificultades
+		
+		JComboBox<String> dificultades = new JComboBox<String>();
+		dificultades.setMaximumRowCount(3);
+		dificultades.setToolTipText("Dificultades");
+		dificultades.setBounds(10, 11, 163, 22);
+		dificultades.addItem("Fácil");
+		dificultades.addItem("Normal");
+		dificultades.addItem("Difícil");
+		frame.getContentPane().add(dificultades); 
 
 		//Creo una instancia de la lógica del tablero.
 		TableroLogica tb = new TableroLogica();
@@ -107,19 +119,18 @@ public class TableroGrafico {
 		actualizarBotones(matrizButton, tb);
 		
 		//FUNCION QUE AGREGA EL EVENTO A CADA BOTON
-		agregarEventos(matrizButton, tb, intentos, record);
+		agregarEventos(matrizButton, tb, intentos, record, dificultades);
 		
 
-
-		
 		
 	}
 	
 	//----------FUNCION QUE ESTABLECE EL EVENTO A CADA BOTON-------------
-	private void agregarEventos(JButton matrizButton[][], TableroLogica tb, JLabel intentos, JLabel record) {
+	private void agregarEventos(JButton matrizButton[][], TableroLogica tb, JLabel intentos, JLabel record, JComboBox<String> dificultades ) {
+			
 		
-		for(int fila=0; fila<4; fila++) {
-			for(int col=0; col<4; col++) {
+		for(int fila=0; fila<matrizButton[0].length; fila++) {
+			for(int col=0; col<matrizButton[fila].length; col++) {
 			
 	
 				matrizButton[fila][col].addActionListener( new ActionListener()  {
