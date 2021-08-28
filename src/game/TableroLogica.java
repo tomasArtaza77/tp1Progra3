@@ -5,17 +5,21 @@ public class TableroLogica {
 
 	private Boolean tablero[][];
 	private Random random;
+	private int fila;
+	private int columna;
 	
-	public TableroLogica() {
+	public TableroLogica(int fila, int columna) {
 		this.random = new Random();
-		this.tablero = new Boolean[4][4];
+		this.fila = fila;
+		this.columna = columna;
+		this.tablero = new Boolean[fila][columna];
 		this.cargarEstados();
 	}
 
 	// Debe modificarse para que sea al azar
 	private void cargarEstados() {
-		for (int fila = 0; fila < 4; fila++) {
-			for (int columna = 0; columna < 4; columna++) {
+		for (int fila = 0; fila < this.fila; fila++) {
+			for (int columna = 0; columna < this.columna; columna++) {
 				tablero[fila][columna] = random.nextBoolean();
 				//tablero[fila][columna] = true;
 			}
@@ -34,8 +38,8 @@ public class TableroLogica {
 	}
 	
 	public boolean haGanado() {
-		for(int fila=0; fila<4; fila++) {
-			for(int col=0; col<4; col++) {
+		for(int fila=0; fila<this.fila; fila++) {
+			for(int col=0; col<this.columna; col++) {
 				if(!this.tablero[fila][col]) {
 					return false;
 				}
@@ -46,13 +50,10 @@ public class TableroLogica {
 	
 	public void cambiarEstados(int fila, int columna) throws IllegalArgumentException {
 		
-		//Chequeo que la fila y la columna contengan valores válidos
-		verificarValorFilaoColumna(fila);
-		verificarValorFilaoColumna(columna);
 		
 		this.tablero[fila][columna] = !this.tablero[fila][columna];
 		
-		if(fila<3) {
+		if(fila<this.fila-1) {
 			this.tablero[fila+1][columna] = !this.tablero[fila+1][columna];
 		}
 		if(fila>0) {
@@ -61,7 +62,7 @@ public class TableroLogica {
 		if(columna>0) {
 			this.tablero[fila][columna-1] = !this.tablero[fila][columna-1];
 		}
-		if(columna<3) {
+		if(columna<this.columna-1) {
 			this.tablero[fila][columna+1] = !this.tablero[fila][columna+1];
 		}
 
@@ -72,14 +73,13 @@ public class TableroLogica {
 		return this.tablero[fila][columna];
 	}
 	
-	private void verificarValorFilaoColumna(int i) {
-		if(i<0) {
-			throw new IllegalArgumentException("Valor de fila inválido: "+ i);
-		}
-		if(i>3) {
-			throw new IllegalArgumentException("Valor de fila inválido: "+ i);
-		}
+	
+	
+	public int getFilas() {
+		return this.fila;
 	}
 	
-
+	public int getColumnas() {
+		return this.columna;
+	}
 }
