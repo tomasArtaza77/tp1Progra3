@@ -9,7 +9,8 @@ public class CreacionDeTablero {
 	private int cantidadBotones;
 	private int filas;
 	private int columnas;
-
+	
+	
 	public CreacionDeTablero(int filas, int columnas) {
 		this.tb = new TableroLogica(filas, columnas);
 		if (filas == 4 && columnas == 4) {
@@ -36,54 +37,17 @@ public class CreacionDeTablero {
 	}
 
 	
-	
-	///-------------------METODOS PARA EL TABLERO EN MODO INTERMEDIO--------------------
-	private JButton[][] creacionMatrizButtonIntermedio() {
-		JButton btn0_0 = new JButton("New button");
-		JButton btn0_1 = new JButton("New button");
-		JButton btn0_2 = new JButton("New button");
-		JButton btn0_3 = new JButton("New button");
-		JButton btn1_0 = new JButton("New button");
-		JButton btn1_1 = new JButton("New button");
-		JButton btn1_2 = new JButton("New button");
-		JButton btn2_0 = new JButton("New button");
-		JButton btn1_3 = new JButton("New button");
-		JButton btn2_1 = new JButton("New button");
-		JButton btn2_2 = new JButton("New button");
-		JButton btn2_3 = new JButton("New button");
-		JButton btn3_0 = new JButton("New button");
-		JButton btn3_1 = new JButton("New button");
-		JButton btn3_2 = new JButton("New button");
-		JButton btn3_3 = new JButton("New button");
-		JButton[][] matriz = { { btn0_0, btn0_1, btn0_2, btn0_3 }, { btn1_0, btn1_1, btn1_2, btn1_3 },
-				{ btn2_0, btn2_1, btn2_2, btn2_3 }, { btn3_0, btn3_1, btn3_2, btn3_3 } };
-		return matriz;
-	}
-
-	private int[][] ubicacionesIntermedio() {
-		int ubicaciones[][] = { { 10, 47, 89, 23 }, { 117, 47, 89, 23 }, { 227, 47, 89, 23 }, { 335, 47, 89, 23 },
-				{ 10, 81, 89, 23 }, { 117, 81, 89, 23 }, { 227, 81, 89, 23 }, { 335, 81, 89, 23 }, { 10, 115, 89, 23 },
-				{ 117, 115, 89, 23 }, { 227, 115, 89, 23 }, { 335, 115, 89, 23 }, { 10, 149, 89, 23 },
-				{ 117, 149, 89, 23 }, { 227, 149, 89, 23 }, { 335, 149, 89, 23 } };
-		return ubicaciones;
-	}
-	
-	//-------------------------------FIN DE MÉTODOS PARA EL TABLERO EN INTERMEDIO-------------------------------
-	
-	
-	
-	
 	///-------------------METODOS PARA EL TABLERO EN MODO FÁCIL--------------------
 		private JButton[][] creacionMatrizButtonFacil() {
-			JButton btn0_0 = new JButton("New button");
-			JButton btn0_1 = new JButton("New button");
-			JButton btn0_2 = new JButton("New button");
-			JButton btn1_0 = new JButton("New button");
-			JButton btn1_1 = new JButton("New button");
-			JButton btn1_2 = new JButton("New button");
-			JButton btn2_0 = new JButton("New button");
-			JButton btn2_1 = new JButton("New button");
-			JButton btn2_2 = new JButton("New button");
+			JButton btn0_0 = new JButton("");
+			JButton btn0_1 = new JButton("");
+			JButton btn0_2 = new JButton("");
+			JButton btn1_0 = new JButton("");
+			JButton btn1_1 = new JButton("");
+			JButton btn1_2 = new JButton("");
+			JButton btn2_0 = new JButton("");
+			JButton btn2_1 = new JButton("");
+			JButton btn2_2 = new JButton("");
 	
 			JButton[][] matriz = { { btn0_0, btn0_1, btn0_2}, { btn1_0, btn1_1, btn1_2 },
 					{ btn2_0, btn2_1, btn2_2} };
@@ -101,34 +65,67 @@ public class CreacionDeTablero {
 		
 		//-------------------------------FIN DE MÉTODOS PARA EL TABLERO EN FÁCIL-------------------------------
 	
+	///-------------------METODOS PARA EL TABLERO EN MODO NORMAL--------------------
+	private JButton[][] creacionMatrizButtonIntermedio() {
+		JButton btn0_0 = new JButton("");
+		JButton btn0_1 = new JButton("");
+		JButton btn0_2 = new JButton("");
+		JButton btn0_3 = new JButton("");
+		JButton btn1_0 = new JButton("");
+		JButton btn1_1 = new JButton("");
+		JButton btn1_2 = new JButton("");
+		JButton btn2_0 = new JButton("");
+		JButton btn1_3 = new JButton("");
+		JButton btn2_1 = new JButton("");
+		JButton btn2_2 = new JButton("");
+		JButton btn2_3 = new JButton("");
+		JButton btn3_0 = new JButton("");
+		JButton btn3_1 = new JButton("");
+		JButton btn3_2 = new JButton("");
+		JButton btn3_3 = new JButton("");
+		JButton[][] matriz = { { btn0_0, btn0_1, btn0_2, btn0_3 }, { btn1_0, btn1_1, btn1_2, btn1_3 },
+				{ btn2_0, btn2_1, btn2_2, btn2_3 }, { btn3_0, btn3_1, btn3_2, btn3_3 } };
+		return matriz;
+	}
+
+	private int[][] ubicacionesIntermedio() {
+		int ubicaciones[][] = { { 10, 47, 89, 23 }, { 117, 47, 89, 23 }, { 227, 47, 89, 23 }, { 335, 47, 89, 23 },
+				{ 10, 81, 89, 23 }, { 117, 81, 89, 23 }, { 227, 81, 89, 23 }, { 335, 81, 89, 23 }, { 10, 115, 89, 23 },
+				{ 117, 115, 89, 23 }, { 227, 115, 89, 23 }, { 335, 115, 89, 23 }, { 10, 149, 89, 23 },
+				{ 117, 149, 89, 23 }, { 227, 149, 89, 23 }, { 335, 149, 89, 23 } };
+		return ubicaciones;
+	}
+	
+	//-------------------------------FIN DE MÉTODOS PARA EL TABLERO EN INTERMEDIO-------------------------------
+	
 	
 		///-------------------METODOS PARA EL TABLERO EN MODO DIFICIL--------------------
 		private JButton[][] creacionMatrizButtonDificil() {
-			JButton btn0_0 = new JButton("New button");
-			JButton btn0_1 = new JButton("New button");
-			JButton btn0_2 = new JButton("New button");
-			JButton btn0_3 = new JButton("New button");
-			JButton btn0_4 = new JButton("New button");
-			JButton btn1_0 = new JButton("New button");
-			JButton btn1_1 = new JButton("New button");
-			JButton btn1_2 = new JButton("New button");
-			JButton btn1_3 = new JButton("New button");
-			JButton btn1_4 = new JButton("New button");
-			JButton btn2_0 = new JButton("New button");
-			JButton btn2_1 = new JButton("New button");
-			JButton btn2_2 = new JButton("New button");
-			JButton btn2_3 = new JButton("New button");
-			JButton btn2_4 = new JButton("New button");
-			JButton btn3_0 = new JButton("New button");
-			JButton btn3_1 = new JButton("New button");
-			JButton btn3_2 = new JButton("New button");
-			JButton btn3_3 = new JButton("New button");
-			JButton btn3_4 = new JButton("New button");
-			JButton btn4_0 = new JButton("New button");
-			JButton btn4_1 = new JButton("New button");
-			JButton btn4_2 = new JButton("New button");
-			JButton btn4_3 = new JButton("New button");
-			JButton btn4_4 = new JButton("New button");
+			JButton btn0_0 = new JButton("");
+			JButton btn0_1 = new JButton("");
+			JButton btn0_2 = new JButton("");
+			JButton btn0_3 = new JButton("");
+			JButton btn0_4 = new JButton("");
+			JButton btn1_0 = new JButton("");
+			JButton btn1_1 = new JButton("");
+			JButton btn1_2 = new JButton("");
+			JButton btn1_3 = new JButton("");
+			JButton btn1_4 = new JButton("");
+			JButton btn2_0 = new JButton("");
+			JButton btn2_1 = new JButton("");
+			JButton btn2_2 = new JButton("");
+			JButton btn2_3 = new JButton("");
+			JButton btn2_4 = new JButton("");
+			JButton btn3_0 = new JButton("");
+			JButton btn3_1 = new JButton("");
+			JButton btn3_2 = new JButton("");
+			JButton btn3_3 = new JButton("");
+			JButton btn3_4 = new JButton("");
+			JButton btn4_0 = new JButton("");
+			JButton btn4_1 = new JButton("");
+			JButton btn4_2 = new JButton("");
+			JButton btn4_3 = new JButton("");
+			JButton btn4_4 = new JButton("");
 			JButton[][] matriz = {
 					{ btn0_0, btn0_1, btn0_2, btn0_3, btn0_4 }, { btn1_0, btn1_1, btn1_2, btn1_3, btn1_4 },
 					{ btn2_0, btn2_1, btn2_2, btn2_3, btn2_4 }, { btn3_0, btn3_1, btn3_2, btn3_3, btn3_4 },
@@ -156,6 +153,9 @@ public class CreacionDeTablero {
 		return this.tb;
 	}
 	
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public JButton[][] getMatrizButton() {
 		return this.matrizButton;
 	}
