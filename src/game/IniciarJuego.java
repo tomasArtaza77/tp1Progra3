@@ -122,6 +122,15 @@ public class IniciarJuego extends JDialog {
 			});
 		}
 		
+		// Lights Out
+		{
+			JLabel lightsOutLabel = new JLabel("Lights Out");
+			lightsOutLabel.setForeground(new Color(255, 255, 0));
+			lightsOutLabel.setFont(new Font("Unispace", Font.ITALIC, 55));
+			lightsOutLabel.setBounds(118, 47, 466, 72);
+			contentPanel.add(lightsOutLabel);
+		}
+		
 		
 		// IMAGEN
 		{
@@ -131,7 +140,7 @@ public class IniciarJuego extends JDialog {
 			imagen.setIcon(new ImageIcon(IniciarJuego.class.getResource("/img/fondoJuego1.jpg")));
 			imagen.setBounds(0, 0, 600, 400);
 		}
-
+		
 		
 	}
 }
